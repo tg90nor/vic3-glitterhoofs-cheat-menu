@@ -1,0 +1,2354 @@
+﻿@ghcm_ig_political_strength_increment = 0.5 # 50%
+@ghcm_ig_approval_increment = 5
+@ghcm_offense_increment = 1 # 100%
+@ghcm_defense_increment = 1 # 100%
+
+namespace = ghcm
+
+ghcm.2 = { # add money
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_treasury = 1000000
+	}
+}
+
+ghcm.3 = { # rem money
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_treasury = -1000000
+	}
+}
+
+ghcm.4 = { # add radicals
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_radicals = { value = 0.1 }
+	}
+}
+
+ghcm.6 = { # add loyalists
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_loyalists = { value = 0.1 }
+	}
+}
+
+ghcm.8 = { # add bureaucracy
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_bureaucracy
+	}
+}
+
+ghcm.9 = { # add authority
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_authority
+	}
+}
+
+ghcm.10 = { # add influence
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_influence
+	}
+}
+
+ghcm.11 = { # add tech spread
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_tech_spread
+	}
+}
+
+
+ghcm.12 = { # Isolationist Lite
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_ethnostate
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_militarized_police
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_outlawed_dissent
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_isolationism
+	}
+}
+
+ghcm.13 = { # Isolationist
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_ethnostate
+		activate_law = law_type:law_command_economy
+		activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_militarized_police
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_outlawed_dissent
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_isolationism
+	}
+}
+
+ghcm.14 = { # Anarchist Capitalism
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_anarchy
+		activate_law = law_type:law_multicultural
+		activate_law = law_type:law_laissez_faire
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_guaranteed_liberties
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_private_health_insurance
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_protected_speech
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_women_own_property
+		scope:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+	}
+}
+
+ghcm.15 = { # Autocratic Protectionist
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_militarized_police
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_outlawed_dissent
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_protectionism
+	}
+}
+
+ghcm.16 = { # Autocratic Mercantilist
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_militarized_police
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_outlawed_dissent
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_mercantilism
+	}
+}
+
+ghcm.17 = { # Anarchist Communism
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_council_republic
+		activate_law = law_type:law_anarchy
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_command_economy
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_national_guard
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_wage_controls
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_graduated_taxation
+		scope:ig_trade_unions = {
+			add_ruling_interest_group = yes
+		}
+	}
+}
+
+ghcm.18 = { # Communism
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_council_republic
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_command_economy
+		activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_militarized_police
+		activate_law = law_type:law_old_age_pension
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_mass_conscription
+		activate_law = law_type:law_isolationism
+		activate_law = law_type:law_proportional_taxation
+		ruler = {
+			kill_character = yes
+		}
+		scope:ig_trade_unions = {
+			add_ruling_interest_group = yes
+		}
+	}
+}
+
+ghcm.19 = { # Free trade Oligaarchy
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_multicultural
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_private_health_insurance
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_serfdom_banned
+		activate_law = law_type:law_protected_speech
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_women_own_property
+		scope:ig_industrialists = {
+			add_ruling_interest_group = yes
+		}
+	}
+}
+
+ghcm.20 = { # goodboy
+	type = country_event
+	hidden = yes
+	immediate = {
+		change_infamy = -100
+	}
+}
+
+ghcm.21 = { # badboy
+	type = country_event
+	hidden = yes
+	immediate = {
+		change_infamy = 100
+	}
+}
+
+ghcm.22 = { # pop growth
+	type = country_event
+	hidden = yes
+	immediate = {
+		every_scope_state = {
+			add_modifier = ghcm_add_birth_rate
+		}
+	}
+}
+
+ghcm.23 = { # rm bureaucracy
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_bureaucracy
+	}
+}
+
+ghcm.24 = { # rm authority
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_authority
+	}
+}
+
+ghcm.25 = { # rm influence
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_influence
+	}
+}
+
+ghcm.26 = { # rm techspred
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_tech_spread
+	}
+}
+
+ghcm.27 = { # rm birthrate
+	type = country_event
+	hidden = yes
+	immediate = {
+		every_scope_state = {
+			remove_modifier = ghcm_add_birth_rate
+		}
+	}
+}
+
+ghcm.28 = { # add income
+	type = country_event
+	hidden = yes
+	immediate = {
+		set_global_variable = {
+			name = ghcm_minting_boost_mult
+			value = root.gdp
+		}
+		add_modifier = {
+			name = ghcm_minting_boost
+			multiplier = global_var:ghcm_minting_boost_mult
+		}
+	}
+}
+
+ghcm.29 = { # rm income
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_global_variable = ghcm_minting_boost_mult
+		remove_modifier = ghcm_minting_boost
+	}
+}
+
+ghcm.30 = { # add killrate
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_killrate
+	}
+}
+
+ghcm.31 = { # rm killrate
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_killrate
+	}
+}
+
+ghcm.32 = { # add attack
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_offense_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_offense_mult
+				value = @ghcm_offense_increment
+			}
+		}
+		else = {
+			change_global_variable = {
+				name = ghcm_offense_mult
+				add = @ghcm_offense_increment
+			}
+		}
+		remove_modifier = ghcm_add_attack
+		if = {
+			limit = {
+				global_var:ghcm_offense_mult > 0
+			}
+			add_modifier = {
+				name = ghcm_add_attack
+				multiplier = global_var:ghcm_offense_mult
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:ghcm_offense_mult < 0
+			}
+			add_modifier = {
+				name = ghcm_add_attack
+				multiplier = global_var:ghcm_offense_mult
+			}
+		}
+	}
+}
+
+ghcm.33 = { # rm attack
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_offense_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_offense_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_offense_mult
+			subtract = @ghcm_offense_increment
+		}
+		remove_modifier = ghcm_add_attack
+		if = {
+			limit = {
+				global_var:ghcm_offense_mult > 0
+			}
+			add_modifier = {
+				name = ghcm_add_attack
+				multiplier = global_var:ghcm_offense_mult
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:ghcm_offense_mult < 0
+			}
+			add_modifier = {
+				name = ghcm_add_attack
+				multiplier = global_var:ghcm_offense_mult
+			}
+		}
+	}
+}
+
+ghcm.34 = { # add defence
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_defense_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_defense_mult
+				value = @ghcm_defense_increment
+			}
+		}
+		else = {
+			change_global_variable = {
+				name = ghcm_defense_mult
+				add = @ghcm_defense_increment
+			}
+		}
+		remove_modifier = ghcm_add_defense
+		if = {
+			limit = {
+				global_var:ghcm_defense_mult > 0
+			}
+			add_modifier = {
+				name = ghcm_add_defense
+				multiplier = global_var:ghcm_defense_mult
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:ghcm_defense_mult < 0
+			}
+			add_modifier = {
+				name = ghcm_add_defense
+				multiplier = global_var:ghcm_defense_mult
+			}
+		}
+	}
+}
+
+ghcm.35 = { # rm defence
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_defense_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_defense_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_defense_mult
+			subtract = @ghcm_defense_increment
+		}
+		remove_modifier = ghcm_add_defense
+		if = {
+			limit = {
+				global_var:ghcm_defense_mult > 0
+			}
+			add_modifier = {
+				name = ghcm_add_defense
+				multiplier = global_var:ghcm_defense_mult
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:ghcm_defense_mult < 0
+			}
+			add_modifier = {
+				name = ghcm_add_defense
+				multiplier = global_var:ghcm_defense_mult
+			}
+		}
+	}
+}
+
+ghcm.36 = { # add recovery
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_recovery
+	}
+}
+
+ghcm.37 = { # rm recovery
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_recovery
+	}
+}
+
+ghcm.38 = { # add efficiency
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_efficiency
+	}
+}
+
+ghcm.39 = { # rm efficiency
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_efficiency
+	}
+}
+
+ghcm.40 = { # add throughput
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_throughput
+	}
+}
+
+ghcm.41 = { # rm throughput
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_throughput
+	}
+}
+
+ghcm.901 = { # ig_armed_forces attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_armed_forces = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_armed_forces_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_armed_forces_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_armed_forces_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_armed_forces
+			remove_modifier = ghcm_rem_polstr_ig_armed_forces
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_armed_forces_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_armed_forces
+					multiplier = global_var:ghcm_polstr_ig_armed_forces_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_armed_forces_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_armed_forces
+					multiplier = global_var:ghcm_polstr_ig_armed_forces_mult
+				}
+			}
+		}
+	}
+}
+ghcm.902 = { # ig_armed_forces attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_armed_forces = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_armed_forces_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_armed_forces_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_armed_forces_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_armed_forces
+			remove_modifier = ghcm_rem_polstr_ig_armed_forces
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_armed_forces_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_armed_forces
+					multiplier = global_var:ghcm_polstr_ig_armed_forces_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_armed_forces_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_armed_forces
+					multiplier = global_var:ghcm_polstr_ig_armed_forces_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.903 = { # ig_devout attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_devout = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_devout_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_devout_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_devout_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_devout
+			remove_modifier = ghcm_rem_polstr_ig_devout
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_devout_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_devout
+					multiplier = global_var:ghcm_polstr_ig_devout_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_devout_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_devout
+					multiplier = global_var:ghcm_polstr_ig_devout_mult
+				}
+			}
+		}
+	}
+}
+ghcm.904 = { # ig_devout attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_devout = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_devout_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_devout_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_devout_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_devout
+			remove_modifier = ghcm_rem_polstr_ig_devout
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_devout_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_devout
+					multiplier = global_var:ghcm_polstr_ig_devout_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_devout_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_devout
+					multiplier = global_var:ghcm_polstr_ig_devout_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.905 = { # ig_industrialists attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_industrialists = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_industrialists_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_industrialists_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_industrialists_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_industrialists
+			remove_modifier = ghcm_rem_polstr_ig_industrialists
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_industrialists_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_industrialists
+					multiplier = global_var:ghcm_polstr_ig_industrialists_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_industrialists_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_industrialists
+					multiplier = global_var:ghcm_polstr_ig_industrialists_mult
+				}
+			}
+		}
+	}
+}
+ghcm.906 = { # ig_industrialists attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_industrialists = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_industrialists_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_industrialists_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_industrialists_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_industrialists
+			remove_modifier = ghcm_rem_polstr_ig_industrialists
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_industrialists_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_industrialists
+					multiplier = global_var:ghcm_polstr_ig_industrialists_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_industrialists_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_industrialists
+					multiplier = global_var:ghcm_polstr_ig_industrialists_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.907 = { # ig_intelligentsia attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_intelligentsia = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_intelligentsia_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_intelligentsia_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_intelligentsia_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_intelligentsia
+			remove_modifier = ghcm_rem_polstr_ig_intelligentsia
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_intelligentsia_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_intelligentsia
+					multiplier = global_var:ghcm_polstr_ig_intelligentsia_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_intelligentsia_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_intelligentsia
+					multiplier = global_var:ghcm_polstr_ig_intelligentsia_mult
+				}
+			}
+		}
+	}
+}
+ghcm.908 = { # ig_intelligentsia attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_intelligentsia = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_intelligentsia_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_intelligentsia_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_intelligentsia_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_intelligentsia
+			remove_modifier = ghcm_rem_polstr_ig_intelligentsia
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_intelligentsia_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_intelligentsia
+					multiplier = global_var:ghcm_polstr_ig_intelligentsia_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_intelligentsia_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_intelligentsia
+					multiplier = global_var:ghcm_polstr_ig_intelligentsia_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.909 = { # ig_landowners attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_landowners = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_landowners_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_landowners_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_landowners_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_landowners
+			remove_modifier = ghcm_rem_polstr_ig_landowners
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_landowners_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_landowners
+					multiplier = global_var:ghcm_polstr_ig_landowners_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_landowners_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_landowners
+					multiplier = global_var:ghcm_polstr_ig_landowners_mult
+				}
+			}
+		}
+	}
+}
+ghcm.910 = { # ig_landowners attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_landowners = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_landowners_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_landowners_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_landowners_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_landowners
+			remove_modifier = ghcm_rem_polstr_ig_landowners
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_landowners_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_landowners
+					multiplier = global_var:ghcm_polstr_ig_landowners_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_landowners_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_landowners
+					multiplier = global_var:ghcm_polstr_ig_landowners_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.911 = { # ig_petty_bourgeoisie attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_petty_bourgeoisie = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_petty_bourgeoisie_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_petty_bourgeoisie_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_petty_bourgeoisie_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_rem_polstr_ig_petty_bourgeoisie
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_petty_bourgeoisie_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_polstr_ig_petty_bourgeoisie_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_petty_bourgeoisie_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_polstr_ig_petty_bourgeoisie_mult
+				}
+			}
+		}
+	}
+}
+ghcm.912 = { # ig_petty_bourgeoisie attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_petty_bourgeoisie = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_petty_bourgeoisie_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_petty_bourgeoisie_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_petty_bourgeoisie_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_rem_polstr_ig_petty_bourgeoisie
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_petty_bourgeoisie_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_polstr_ig_petty_bourgeoisie_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_petty_bourgeoisie_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_polstr_ig_petty_bourgeoisie_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.913 = { # ig_rural_folk attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_rural_folk = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_rural_folk_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_rural_folk_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_rural_folk_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_rural_folk
+			remove_modifier = ghcm_rem_polstr_ig_rural_folk
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_rural_folk_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_rural_folk
+					multiplier = global_var:ghcm_polstr_ig_rural_folk_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_rural_folk_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_rural_folk
+					multiplier = global_var:ghcm_polstr_ig_rural_folk_mult
+				}
+			}
+		}
+	}
+}
+ghcm.914 = { # ig_rural_folk attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_rural_folk = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_rural_folk_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_rural_folk_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_rural_folk_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_rural_folk
+			remove_modifier = ghcm_rem_polstr_ig_rural_folk
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_rural_folk_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_rural_folk
+					multiplier = global_var:ghcm_polstr_ig_rural_folk_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_rural_folk_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_rural_folk
+					multiplier = global_var:ghcm_polstr_ig_rural_folk_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.915 = { # ig_trade_unions attraction +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_trade_unions = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_trade_unions_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_trade_unions_mult
+					value = @ghcm_ig_political_strength_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_polstr_ig_trade_unions_mult
+					add = @ghcm_ig_political_strength_increment
+				}
+			}
+			remove_modifier = ghcm_add_polstr_ig_trade_unions
+			remove_modifier = ghcm_rem_polstr_ig_trade_unions
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_trade_unions_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_trade_unions
+					multiplier = global_var:ghcm_polstr_ig_trade_unions_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_trade_unions_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_trade_unions
+					multiplier = global_var:ghcm_polstr_ig_trade_unions_mult
+				}
+			}
+		}
+	}
+}
+ghcm.916 = { # ig_trade_unions attraction -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_trade_unions = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_polstr_ig_trade_unions_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_polstr_ig_trade_unions_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_polstr_ig_trade_unions_mult
+				subtract = @ghcm_ig_political_strength_increment
+			}
+			remove_modifier = ghcm_add_polstr_ig_trade_unions
+			remove_modifier = ghcm_rem_polstr_ig_trade_unions
+			if = {
+				limit = {
+					global_var:ghcm_polstr_ig_trade_unions_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_polstr_ig_trade_unions
+					multiplier = global_var:ghcm_polstr_ig_trade_unions_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_polstr_ig_trade_unions_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_polstr_ig_trade_unions
+					multiplier = global_var:ghcm_polstr_ig_trade_unions_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.918 = { # reset interest group attraction
+	type = country_event
+	hidden = yes
+	immediate = {
+		every_interest_group = {
+			remove_modifier = ghcm_add_polstr_ig_armed_forces
+			remove_modifier = ghcm_add_polstr_ig_devout
+			remove_modifier = ghcm_add_polstr_ig_industrialists
+			remove_modifier = ghcm_add_polstr_ig_intelligentsia
+			remove_modifier = ghcm_add_polstr_ig_landowners
+			remove_modifier = ghcm_add_polstr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_add_polstr_ig_rural_folk
+			remove_modifier = ghcm_add_polstr_ig_trade_unions
+			remove_modifier = ghcm_rem_polstr_ig_armed_forces
+			remove_modifier = ghcm_rem_polstr_ig_devout
+			remove_modifier = ghcm_rem_polstr_ig_industrialists
+			remove_modifier = ghcm_rem_polstr_ig_intelligentsia
+			remove_modifier = ghcm_rem_polstr_ig_landowners
+			remove_modifier = ghcm_rem_polstr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_rem_polstr_ig_rural_folk
+			remove_modifier = ghcm_rem_polstr_ig_trade_unions
+		}
+		remove_global_variable = ghcm_polstr_ig_armed_forces_mult
+		remove_global_variable = ghcm_polstr_ig_devout_mult
+		remove_global_variable = ghcm_polstr_ig_industrialists_mult
+		remove_global_variable = ghcm_polstr_ig_intelligentsia_mult
+		remove_global_variable = ghcm_polstr_ig_landowners_mult
+		remove_global_variable = ghcm_polstr_ig_petty_bourgeoisie_mult
+		remove_global_variable = ghcm_polstr_ig_rural_folk_mult
+		remove_global_variable = ghcm_polstr_ig_trade_unions_mult
+	}
+}
+
+ghcm.919 = { # ig_armed_forces approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_armed_forces = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_armed_forces_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_armed_forces_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_armed_forces_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_armed_forces
+			remove_modifier = ghcm_rem_appr_ig_armed_forces
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_armed_forces_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_armed_forces
+					multiplier = global_var:ghcm_appr_ig_armed_forces_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_armed_forces_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_armed_forces
+					multiplier = global_var:ghcm_appr_ig_armed_forces_mult
+				}
+			}
+		}
+	}
+}
+ghcm.920 = { # ig_armed_forces approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_armed_forces = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_armed_forces_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_armed_forces_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_armed_forces_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_armed_forces
+			remove_modifier = ghcm_rem_appr_ig_armed_forces
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_armed_forces_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_armed_forces
+					multiplier = global_var:ghcm_appr_ig_armed_forces_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_armed_forces_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_armed_forces
+					multiplier = global_var:ghcm_appr_ig_armed_forces_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.921 = { # ig_devout approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_devout = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_devout_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_devout_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_devout_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_devout
+			remove_modifier = ghcm_rem_appr_ig_devout
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_devout_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_devout
+					multiplier = global_var:ghcm_appr_ig_devout_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_devout_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_devout
+					multiplier = global_var:ghcm_appr_ig_devout_mult
+				}
+			}
+		}
+	}
+}
+ghcm.922 = { # ig_devout approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_devout = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_devout_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_devout_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_devout_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_devout
+			remove_modifier = ghcm_rem_appr_ig_devout
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_devout_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_devout
+					multiplier = global_var:ghcm_appr_ig_devout_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_devout_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_devout
+					multiplier = global_var:ghcm_appr_ig_devout_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.923 = { # ig_industrialists approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_industrialists = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_industrialists_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_industrialists_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_industrialists_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_industrialists
+			remove_modifier = ghcm_rem_appr_ig_industrialists
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_industrialists_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_industrialists
+					multiplier = global_var:ghcm_appr_ig_industrialists_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_industrialists_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_industrialists
+					multiplier = global_var:ghcm_appr_ig_industrialists_mult
+				}
+			}
+		}
+	}
+}
+ghcm.924 = { # ig_industrialists approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_industrialists = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_industrialists_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_industrialists_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_industrialists_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_industrialists
+			remove_modifier = ghcm_rem_appr_ig_industrialists
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_industrialists_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_industrialists
+					multiplier = global_var:ghcm_appr_ig_industrialists_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_industrialists_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_industrialists
+					multiplier = global_var:ghcm_appr_ig_industrialists_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.925 = { # ig_intelligentsia approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_intelligentsia = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_intelligentsia_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_intelligentsia_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_intelligentsia_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_intelligentsia
+			remove_modifier = ghcm_rem_appr_ig_intelligentsia
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_intelligentsia_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_intelligentsia
+					multiplier = global_var:ghcm_appr_ig_intelligentsia_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_intelligentsia_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_intelligentsia
+					multiplier = global_var:ghcm_appr_ig_intelligentsia_mult
+				}
+			}
+		}
+	}
+}
+ghcm.926 = { # ig_intelligentsia approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_intelligentsia = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_intelligentsia_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_intelligentsia_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_intelligentsia_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_intelligentsia
+			remove_modifier = ghcm_rem_appr_ig_intelligentsia
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_intelligentsia_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_intelligentsia
+					multiplier = global_var:ghcm_appr_ig_intelligentsia_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_intelligentsia_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_intelligentsia
+					multiplier = global_var:ghcm_appr_ig_intelligentsia_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.927 = { # ig_landowners approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_landowners = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_landowners_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_landowners_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_landowners_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_landowners
+			remove_modifier = ghcm_rem_appr_ig_landowners
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_landowners_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_landowners
+					multiplier = global_var:ghcm_appr_ig_landowners_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_landowners_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_landowners
+					multiplier = global_var:ghcm_appr_ig_landowners_mult
+				}
+			}
+		}
+	}
+}
+ghcm.928 = { # ig_landowners approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_landowners = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_landowners_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_landowners_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_landowners_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_landowners
+			remove_modifier = ghcm_rem_appr_ig_landowners
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_landowners_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_landowners
+					multiplier = global_var:ghcm_appr_ig_landowners_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_landowners_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_landowners
+					multiplier = global_var:ghcm_appr_ig_landowners_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.929 = { # ig_petty_bourgeoisie approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_petty_bourgeoisie = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_petty_bourgeoisie_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_petty_bourgeoisie_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_petty_bourgeoisie_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_rem_appr_ig_petty_bourgeoisie
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_petty_bourgeoisie_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_appr_ig_petty_bourgeoisie_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_petty_bourgeoisie_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_appr_ig_petty_bourgeoisie_mult
+				}
+			}
+		}
+	}
+}
+ghcm.930 = { # ig_petty_bourgeoisie approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_petty_bourgeoisie = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_petty_bourgeoisie_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_petty_bourgeoisie_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_petty_bourgeoisie_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_rem_appr_ig_petty_bourgeoisie
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_petty_bourgeoisie_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_appr_ig_petty_bourgeoisie_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_petty_bourgeoisie_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_petty_bourgeoisie
+					multiplier = global_var:ghcm_appr_ig_petty_bourgeoisie_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.931 = { # ig_rural_folk approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_rural_folk = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_rural_folk_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_rural_folk_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_rural_folk_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_rural_folk
+			remove_modifier = ghcm_rem_appr_ig_rural_folk
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_rural_folk_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_rural_folk
+					multiplier = global_var:ghcm_appr_ig_rural_folk_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_rural_folk_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_rural_folk
+					multiplier = global_var:ghcm_appr_ig_rural_folk_mult
+				}
+			}
+		}
+	}
+}
+ghcm.932 = { # ig_rural_folk approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_rural_folk = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_rural_folk_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_rural_folk_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_rural_folk_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_rural_folk
+			remove_modifier = ghcm_rem_appr_ig_rural_folk
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_rural_folk_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_rural_folk
+					multiplier = global_var:ghcm_appr_ig_rural_folk_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_rural_folk_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_rural_folk
+					multiplier = global_var:ghcm_appr_ig_rural_folk_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.933 = { # ig_trade_unions approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_trade_unions = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_trade_unions_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_trade_unions_mult
+					value = @ghcm_ig_approval_increment
+				}
+			}
+			else = {
+				change_global_variable = {
+					name = ghcm_appr_ig_trade_unions_mult
+					add = @ghcm_ig_approval_increment
+				}
+			}
+			remove_modifier = ghcm_add_appr_ig_trade_unions
+			remove_modifier = ghcm_rem_appr_ig_trade_unions
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_trade_unions_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_trade_unions
+					multiplier = global_var:ghcm_appr_ig_trade_unions_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_trade_unions_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_trade_unions
+					multiplier = global_var:ghcm_appr_ig_trade_unions_mult
+				}
+			}
+		}
+	}
+}
+ghcm.934 = { # ig_trade_unions approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		ig:ig_trade_unions = {
+			if = {
+				limit = {
+					NOT = {
+						has_global_variable = ghcm_appr_ig_trade_unions_mult
+					}
+				}
+				set_global_variable = {
+					name = ghcm_appr_ig_trade_unions_mult
+					value = 0
+				}
+			}
+			change_global_variable = {
+				name = ghcm_appr_ig_trade_unions_mult
+				subtract = @ghcm_ig_approval_increment
+			}
+			remove_modifier = ghcm_add_appr_ig_trade_unions
+			remove_modifier = ghcm_rem_appr_ig_trade_unions
+			if = {
+				limit = {
+					global_var:ghcm_appr_ig_trade_unions_mult > 0
+				}
+				add_modifier = {
+					name = ghcm_add_appr_ig_trade_unions
+					multiplier = global_var:ghcm_appr_ig_trade_unions_mult
+				}
+			}
+			else_if = {
+				limit = {
+					global_var:ghcm_appr_ig_trade_unions_mult < 0
+				}
+				add_modifier = {
+					name = ghcm_rem_appr_ig_trade_unions
+					multiplier = global_var:ghcm_appr_ig_trade_unions_mult
+				}
+			}
+		}
+	}
+}
+
+ghcm.935 = { # everyone approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_appr_everyone
+	}
+}
+ghcm.1935 = { # everyone approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_rem_appr_everyone
+	}
+}
+
+ghcm.936 = { # reset interest group approval
+	type = country_event
+	hidden = yes
+	immediate = {
+		every_interest_group = {
+			remove_modifier = ghcm_add_appr_ig_armed_forces
+			remove_modifier = ghcm_add_appr_ig_devout
+			remove_modifier = ghcm_add_appr_ig_industrialists
+			remove_modifier = ghcm_add_appr_ig_intelligentsia
+			remove_modifier = ghcm_add_appr_ig_landowners
+			remove_modifier = ghcm_add_appr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_add_appr_ig_rural_folk
+			remove_modifier = ghcm_add_appr_ig_trade_unions
+			remove_modifier = ghcm_rem_appr_ig_armed_forces
+			remove_modifier = ghcm_rem_appr_ig_devout
+			remove_modifier = ghcm_rem_appr_ig_industrialists
+			remove_modifier = ghcm_rem_appr_ig_intelligentsia
+			remove_modifier = ghcm_rem_appr_ig_landowners
+			remove_modifier = ghcm_rem_appr_ig_petty_bourgeoisie
+			remove_modifier = ghcm_rem_appr_ig_rural_folk
+			remove_modifier = ghcm_rem_appr_ig_trade_unions
+		}
+		remove_global_variable = ghcm_appr_ig_armed_forces_mult
+		remove_global_variable = ghcm_appr_ig_devout_mult
+		remove_global_variable = ghcm_appr_ig_industrialists_mult
+		remove_global_variable = ghcm_appr_ig_intelligentsia_mult
+		remove_global_variable = ghcm_appr_ig_landowners_mult
+		remove_global_variable = ghcm_appr_ig_petty_bourgeoisie_mult
+		remove_global_variable = ghcm_appr_ig_rural_folk_mult
+		remove_global_variable = ghcm_appr_ig_trade_unions_mult
+
+		remove_modifier = ghcm_add_appr_everyone
+		remove_modifier = ghcm_rem_appr_everyone
+		remove_modifier = ghcm_add_appr_in_government
+		remove_modifier = ghcm_rem_appr_in_government
+		remove_modifier = ghcm_add_appr_in_opposition
+		remove_modifier = ghcm_rem_appr_in_opposition
+	}
+}
+
+ghcm.937 = { # in_government approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_appr_in_government
+	}
+}
+ghcm.938 = { # in_government approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_rem_appr_in_government
+	}
+}
+
+ghcm.939 = { # in_opposition approval +
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_appr_in_opposition
+	}
+}
+ghcm.940 = { # in_opposition approval -
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_rem_appr_in_opposition
+	}
+}
+
+ghcm.941 = { # pop literacy +
+	type = country_event
+	hidden = yes
+	immediate = {
+		hidden_effect = {
+			every_scope_pop = {
+				set_pop_literacy = {
+					literacy_rate = {
+						value = root.literacy_rate
+						add = 0.05
+					}
+				}
+			}
+		}
+	}
+}
+ghcm.942 = { # pop literacy -
+	type = country_event
+	hidden = yes
+	immediate = {
+		hidden_effect = {
+			every_scope_pop = {
+				set_pop_literacy = {
+					literacy_rate = {
+						value = root.literacy_rate
+						add = -0.05
+					}
+				}
+			}
+		}
+	}
+}
+
+ghcm.943 = { # 建造力+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_JZL
+	}
+}
+ghcm.944 = { # 建造力-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_JZL_X
+	}
+}
+ghcm.945 = { # 建造力清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_JZL
+		remove_modifier = ghcm_add_PPK_JZL_X
+	}
+}
+ghcm.946 = { # 征税力+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_ZSL
+	}
+}
+ghcm.947 = { # 征税力-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_ZSL_X
+	}
+}
+ghcm.948 = { # 征税力清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_ZSL
+		remove_modifier = ghcm_add_PPK_ZSL_X
+	}
+}
+ghcm.949 = { # 基础设施+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_JCS
+	}
+}
+ghcm.950 = { # 基础设施-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_JCS_X
+	}
+}
+ghcm.951 = { # 基础设施清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_JCS
+		remove_modifier = ghcm_add_PPK_JCS_X
+	}
+}
+ghcm.952 = { # 创新力+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_CXL
+	}
+}
+ghcm.953 = { # 创新力-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_CXL_X
+	}
+}
+ghcm.954 = { # 创新力清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_CXL
+		remove_modifier = ghcm_add_PPK_CXL_X
+	}
+}
+ghcm.955 = { # 移民吸引+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_YML
+	}
+}
+ghcm.956 = { # 移民吸引-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_YML_X
+	}
+}
+ghcm.957 = { # 移民吸引清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_YML
+		remove_modifier = ghcm_add_PPK_YML_X
+	}
+}
+ghcm.958= { # 国家威望+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_GJW
+	}
+}
+ghcm.959 = { # 国家威望-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_GJW_X
+	}
+}
+ghcm.960= { # 合法性+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_HFX
+	}
+}
+ghcm.961 = { # 合法性-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_HFX_X
+	}
+}
+ghcm.962 = { # 合法性清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_HFX
+		remove_modifier = ghcm_add_PPK_HFX_X
+	}
+}
+ghcm.963= { # 同化+
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_THJ
+	}
+}
+ghcm.964 = { # 同化-
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_add_PPK_THJ_X
+	}
+}
+ghcm.965 = { # 同化清空
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_add_PPK_THJ
+		remove_modifier = ghcm_add_PPK_THJ_X
+	}
+}
+ghcm.966 = { # add law enactment
+	type = country_event
+	hidden = yes
+	immediate = {
+		add_modifier = ghcm_law_enactment
+	}
+}
+ghcm.967 = { # rm law enactment
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_law_enactment
+	}
+}

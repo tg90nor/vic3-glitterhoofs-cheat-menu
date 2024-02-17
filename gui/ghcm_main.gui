@@ -1,0 +1,1225 @@
+﻿types ghcm_window_types {
+	type ghcm_window = window {
+		name = "ghcm_main_window"
+		parentanchor = center
+		position = { 0 0 }
+		size = { 640 %100 }
+		layer = windows_layer
+		filter_mouse = all
+		allow_outside = yes
+		alwaystransparent = no
+		visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
+
+		using = Window_Background
+		using = Window_Decoration
+		movable = yes
+
+		datacontext = "[GetVariableSystem]"
+		datacontext = "[GetPlayer]"
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+		}
+
+		vbox = {
+			restrictparent_min = yes
+			using = Window_Margins
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+
+				blockoverride "header_text"
+				{
+					text = "GHCM_HEADER"
+					tooltip = "GHCM_DESCRIPTION"
+				}
+	
+				blockoverride "button_close"
+				{
+					onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
+				}
+	
+				widget = {
+					position = { 10 12 }
+					size = { 110 35 }
+					hbox = {
+						button_standard = {
+							blockoverride "primary_visible" {}
+							blockoverride "primary_texture" {
+								texture = "gfx/interface/buttons/expand_button_bg.dds"
+							}
+							layoutpolicy_horizontal = expanding
+							size = { 100 35 }
+							text = "PPK_TEXT_BUTTON_1"
+							onclick = "[ExecuteConsoleCommand('debug_mode')]"
+							tooltip = "PPK_TEXT_BUTTON_1_TOOLTIP"
+						}
+					}
+				}
+			}
+	
+			widget = {
+				size = { 645 420 }
+	
+				widget = {
+									position = { -2 0 }
+									size = { 640 100 }
+					vbox = {
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_treasury"
+								onclick = "[ExecuteConsoleCommand('event ghcm.2')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.3')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_2_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_2"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_taxation"
+								onclick = "[ExecuteConsoleCommand('event ghcm.28')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.29')]"
+								tooltip = "PPK_TEXT_BUTTON_3_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_3"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_infamy"
+								onclick = "[ExecuteConsoleCommand('event ghcm.21')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.20')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_4_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_4"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/expand_button_bg.dds"
+								}
+								name = "ghcm_PK1"
+								onclick = "[ExecuteConsoleCommand('fastinstitutions')]"
+								tooltip = "PPK_TEXT_BUTTON_5_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_5"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/expand_button_bg.dds"
+								}
+								name = "ghcm_build"
+								onclick = "[ExecuteConsoleCommand('fastbuild')]"
+								tooltip = "PPK_TEXT_BUTTON_6_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_6"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_bureaucracy"
+								onclick = "[ExecuteConsoleCommand('event ghcm.8')]"
+								tooltip = "PPK_TEXT_BUTTON_7_TOOLTIP"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.23')]"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_7"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_authority"
+								onclick = "[ExecuteConsoleCommand('event ghcm.9')]"
+								tooltip = "PPK_TEXT_BUTTON_8_TOOLTIP"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.24')]"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_8"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_influence"
+								onclick = "[ExecuteConsoleCommand('event ghcm.10')]"
+								tooltip = "PPK_TEXT_BUTTON_9_TOOLTIP"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.25')]"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_9"
+							}
+	
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/expand_button_bg.dds"
+								}
+								name = "ghcm_research"
+								onclick = "[ExecuteConsoleCommand('fastresearch')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_10_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_10"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								#blockoverride "primary_texture" {
+								#	texture = "gfx/interface/buttons/expand_button_bg.dds"
+								#}
+								name = "ghcm_enact"
+								#onclick = "[ExecuteConsoleCommand('fastenact')]"
+								onclick = "[ExecuteConsoleCommand('event ghcm.966')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								tooltip = "PPK_TEXT_BUTTON_11_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_11"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_loyalists"
+								onclick = "[ExecuteConsoleCommand('event ghcm.6')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.7')]"
+								tooltip = "PPK_TEXT_BUTTON_12_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_12"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_radicals"
+								onclick = "[ExecuteConsoleCommand('event ghcm.4')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.5')]"
+								tooltip = "PPK_TEXT_BUTTON_13_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_13"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_tech_spread"
+								onclick = "[ExecuteConsoleCommand('event ghcm.11')]"
+								tooltip = "PPK_TEXT_BUTTON_14_TOOLTIP"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.26')]"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_14"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/expand_button_bg.dds"
+								}
+								name = "ghcm_PK2"
+								onclick = "[ExecuteConsoleCommand('fasthire')]"
+								tooltip = "PPK_TEXT_BUTTON_15_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_15"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/expand_button_bg.dds"
+								}
+								name = "ghcm_PK3"
+								onclick = "[ExecuteConsoleCommand('fastmobilize')]"
+								tooltip = "PPK_TEXT_BUTTON_16_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_16"
+							}
+						}
+					}
+							}
+	
+				widget = {
+					position = { 260 113 }
+					size = { 400 105 }
+					vbox = {
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_PK4"
+								button_ignore = none
+								using = tooltip_ne
+								size = { 180 110 }
+								#text = "PPK_TEXT_BUTTON_17"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.935')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.936')]"
+								tooltip = "PPK_TEXT_BUTTON_17_TOOLTIP"
+	
+								sidepanel_button_small = {
+									position = { -60 -35 }
+									name = "ghcm_PK_9"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.919')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.920')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/armed_forces_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_19_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -20 -35 }
+									name = "ghcm_PK_10"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.921')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.922')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/devout_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_20_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 20 -35 }
+									name = "ghcm_PK_11"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.923')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.924')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/industrialists_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_21_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 60 -35 }
+									name = "ghcm_PK_12"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.925')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.926')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/intelligensia_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_22_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -60 35 }
+									name = "ghcm_PK_13"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.927')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.928')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/landowners_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_23_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -20 35 }
+									name = "ghcm_PK_14"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.929')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.930')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/petty_bourgeoisie_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_24_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 20 35 }
+									name = "ghcm_PK_15"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.931')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.932')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/rural_folk_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 }
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_25_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 60 35 }
+									name = "ghcm_PK_16"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.933')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.934')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/trade_unions_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 }
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_26_TOOLTIP"
+								}
+
+								sidepanel_button_small = { # in_government approval
+									position = { 60 0 }
+									name = "ghcm_PK_17"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.937')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.938')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/generic_icons/in_government_icon.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 }
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_27_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -60 0 }
+									name = "ghcm_PK_18"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.939')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.940')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/generic_icons/in_opposition_icon.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 }
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_28_TOOLTIP"
+								}
+							}
+
+							button_standard = {
+								blockoverride "primary_visible" {}
+								name = "ghcm_PK5"
+								button_ignore = none
+								using = tooltip_ne
+								size = { 180 110 }
+								text = "PPK_TEXT_BUTTON_29"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.917')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.918')]"
+								tooltip = "PPK_TEXT_BUTTON_29_TOOLTIP"
+
+								sidepanel_button_small = {
+									position = { -60 -35 }
+									name = "ghcm_PK_9"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.901')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.902')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/armed_forces_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_30_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -20 -35 }
+									name = "ghcm_PK_10"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.903')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.904')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/devout_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_31_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 20 -35 }
+									name = "ghcm_PK_11"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.905')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.906')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/industrialists_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_32_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 60 -35 }
+									name = "ghcm_PK_12"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.907')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.908')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/intelligensia_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_33_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -60 35 }
+									name = "ghcm_PK_13"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.909')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.910')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/landowners_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_34_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { -20 35 }
+									name = "ghcm_PK_14"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.911')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.912')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/petty_bourgeoisie_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_35_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 20 35 }
+									name = "ghcm_PK_15"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.913')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.914')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/rural_folk_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_36_TOOLTIP"
+								}
+								sidepanel_button_small = {
+									position = { 60 35 }
+									name = "ghcm_PK_16"
+									size = { 30 30 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.915')]"
+									onrightclick = "[ExecuteConsoleCommand('event ghcm.916')]"
+									blockoverride "icon" { texture = "gfx/interface/icons/ig_icons/trade_unions_30.dds" }
+									blockoverride "icon_size" {
+										position = { -1 -1 } 
+										size = { 30 30 }
+									}
+									tooltip = "PPK_TEXT_BUTTON_37_TOOLTIP"
+								}
+							}
+	
+						}
+					}
+	
+					button_standard = {
+						block "onclick_showless" {}
+						name = "ghcm_PK_ZC"
+						onclick = "[ExecuteConsoleCommand('event ghcm.935')]"
+						onrightclick = "[ExecuteConsoleCommand('event ghcm.1935')]"
+						tooltip = "PPK_TEXT_BUTTON_18_TOOLTIP"
+						using = tooltip_ne
+						position = { 68 37 }
+						size = { 80 35 }
+						text = "PPK_TEXT_BUTTON_18"
+					}
+				}
+	
+				widget = {
+					position = { -5 118 }
+									size = { 270 140 }
+					vbox = {
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_fancy_big.dds"
+								}
+								block "onclick_showless" {}
+								name = "ghcm_kill"
+								onclick = "[ExecuteConsoleCommand('event ghcm.30')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.31')]"
+								tooltip = "PPK_TEXT_BUTTON_38_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_38"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/expand_button_bg.dds"
+								}
+								name = "ghcm_yesmen"
+								onclick = "[ExecuteConsoleCommand('yesmen')]"
+								tooltip = "PPK_TEXT_BUTTON_42_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_42"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_fancy_big.dds"
+								}
+								name = "ghcm_recovery"
+								onclick = "[ExecuteConsoleCommand('event ghcm.36')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.37')]"
+								tooltip = "PPK_TEXT_BUTTON_39_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_39"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame.dds"
+								}
+								name = "ghcm_pop"
+								onclick = "[ExecuteConsoleCommand('event ghcm.22')]"
+								tooltip = "PPK_TEXT_BUTTON_43_TOOLTIP"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.27')]"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_43"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_fancy_big.dds"
+								}
+								name = "ghcm_attac"
+								onclick = "[ExecuteConsoleCommand('event ghcm.32')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.33')]"
+								tooltip = "PPK_TEXT_BUTTON_40_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_40"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame.dds"
+								}
+								name = "ghcm_eff"
+								onclick = "[ExecuteConsoleCommand('event ghcm.38')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.39')]"
+								tooltip = "PPK_TEXT_BUTTON_44_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_44"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_fancy_big.dds"
+								}
+								name = "ghcm_protec"
+								onclick = "[ExecuteConsoleCommand('event ghcm.34')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.35')]"
+								tooltip = "PPK_TEXT_BUTTON_41_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_41"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame.dds"
+								}
+								name = "ghcm_throughput"
+								onclick = "[ExecuteConsoleCommand('event ghcm.40')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.41')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_45_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_45"
+							}
+						}
+					}
+				}
+	
+				widget = {
+									position = { -5 270 }
+									size = { 260 140 }
+					vbox = {
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_isolationist"
+								onclick = "[ExecuteConsoleCommand('event ghcm.13')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_46_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_46"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_isolationist_lite"
+								onclick = "[ExecuteConsoleCommand('event ghcm.12')]"
+								tooltip = "PPK_TEXT_BUTTON_47_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_47"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_empire_protec"
+								onclick = "[ExecuteConsoleCommand('event ghcm.15')]"
+								tooltip = "PPK_TEXT_BUTTON_48_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_48"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_empire_attac"
+								onclick = "[ExecuteConsoleCommand('event ghcm.16')]"
+								tooltip = "PPK_TEXT_BUTTON_49_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_49"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_ancap"
+								onclick = "[ExecuteConsoleCommand('event ghcm.14')]"
+								tooltip = "PPK_TEXT_BUTTON_50_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_50"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_rob_bar_par"
+								onclick = "[ExecuteConsoleCommand('event ghcm.19')]"
+								tooltip = "PPK_TEXT_BUTTON_51_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_51"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_syndi"
+								onclick = "[ExecuteConsoleCommand('event ghcm.17')]"
+								tooltip = "PPK_TEXT_BUTTON_52_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_52"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_commi"
+								onclick = "[ExecuteConsoleCommand('event ghcm.18')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_53_TOOLTIP"
+								using = tooltip_ne
+								size = { 130 35 }
+								text = "PPK_TEXT_BUTTON_53"
+							}
+						}
+					}
+				}
+	
+				widget = {
+									position = { 265 235 }
+									size = { 384 175 }
+					vbox = {
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_1"
+								onclick = "[ExecuteConsoleCommand('event ghcm.941')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.942')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_54_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_54"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_2"
+								onclick = "[ExecuteConsoleCommand('event ghcm.943')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.944')]"
+								tooltip = "PPK_TEXT_BUTTON_55_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_55"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_1_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.945')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_55X_TOOLTIP"
+								}
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_3"
+								onclick = "[ExecuteConsoleCommand('event ghcm.946')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.947')]"
+								tooltip = "PPK_TEXT_BUTTON_56_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_56"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_3_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.948')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_56X_TOOLTIP"
+								}
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_4"
+								onclick = "[ExecuteConsoleCommand('event ghcm.949')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.950')]"
+								tooltip = "PPK_TEXT_BUTTON_57_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_57"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_4_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.951')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_57X_TOOLTIP"
+								}
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_5"
+								onclick = "[ExecuteConsoleCommand('event ghcm.952')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.953')]"
+								tooltip = "PPK_TEXT_BUTTON_58_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_58"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_5_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.954')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_58X_TOOLTIP"
+								}
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_6"
+								onclick = "[ExecuteConsoleCommand('event ghcm.955')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.956')]"
+								tooltip = "PPK_TEXT_BUTTON_59_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_59"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_6_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.957')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_59X_TOOLTIP"
+								}
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_7"
+								onclick = "[ExecuteConsoleCommand('event ghcm.958')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.959')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_60_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_60"
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_8"
+								onclick = "[ExecuteConsoleCommand('event ghcm.960')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.961')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_61_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_61"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_8_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.962')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_61X_TOOLTIP"
+								}
+							}
+	
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_9"
+								onclick = "[ExecuteConsoleCommand('event ghcm.963')]"
+								onrightclick = "[ExecuteConsoleCommand('event ghcm.964')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_62_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_62"
+								sidepanel_button_small = {
+									position = { -45 0 }
+									name = "ghcm_PK_X_9_sidepanel"
+									size = { 35 35 }
+									alpha = 1
+									onclick = "[ExecuteConsoleCommand('event ghcm.965')]"
+									blockoverride "sound" {
+										using = back_button_sound
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/back.dds"
+									}
+									tooltip = "PPK_TEXT_BUTTON_62X_TOOLTIP"
+								}
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_10"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.968')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_63_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_63"
+							}
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_11"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.966')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_64_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_64"
+							}
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_12"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.966')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_65_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_65"
+							}
+						}
+	
+						hbox = {
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_13"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.966')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_66_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_66"
+							}
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_14"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.966')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_67_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_67"
+							}
+							button_standard = {
+								blockoverride "primary_visible" {}
+								blockoverride "primary_texture" {
+									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
+								}
+								name = "ghcm_PK_X_15"
+								#onclick = "[ExecuteConsoleCommand('event ghcm.966')]"
+								#onrightclick = "[ExecuteConsoleCommand('event ghcm.967')]"
+								button_ignore = none
+								tooltip = "PPK_TEXT_BUTTON_68_TOOLTIP"
+								using = tooltip_ne
+								size = { 128 35 }
+								text = "PPK_TEXT_BUTTON_68"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	type cheat_menu_sidebar_button = widget {
+		using = clickthrough_blocker
+		size = { 100% 40 }
+
+		sidebar_label_button_small = {
+			visible = "[Not(GetVariableSystem.Exists('enable_ghcm_main_window'))]"
+			position = { -100 0 }
+			blockoverride "onclick" {
+				onclick = "[GetVariableSystem.Toggle('enable_ghcm_main_window')]"
+				onclick = "[ExecuteConsoleCommand('GUI.CreateWidget gui/ghcm_main.gui ghcm_main_window')]"
+				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
+				input_action = ghcm_menu
+			}
+		}
+		sidebar_label_button_small = {
+			visible = "[GetVariableSystem.Exists('enable_ghcm_main_window')]"
+			position = { -100 0 }
+			blockoverride "onclick" {
+				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
+				input_action = ghcm_menu
+			}
+		}
+		sidebar_label_text_small = {
+			position = { -100 0 }
+			text = "GHCM_BUTTON"
+		}
+		widget = {
+			visible = "[Not(GetVariableSystem.Exists('enable_ghcm_main_window'))]"
+			position = { 0 0 }
+			using = sidebar_button_size_small
+			using = selected_sidepanel_animation_small
+			blockoverride "selected_visibility" {
+				visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
+			}
+			sidepanel_button_small = {
+				name = "ghcm_shortcut_button"
+				blockoverride "icon" {
+					texture = "gfx/interface/icons/military_icons/skull.dds"
+				}
+				blockoverride "icon_size" {
+					size = { 25 25 }
+				}
+				blockoverride "button_selected" {
+					visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
+				}
+				onclick = "[GetVariableSystem.Toggle('enable_ghcm_main_window')]"
+				onclick = "[ExecuteConsoleCommand('GUI.CreateWidget gui/ghcm_main.gui ghcm_main_window')]"
+				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
+			}
+		}
+		widget = {
+			visible = "[GetVariableSystem.Exists('enable_ghcm_main_window')]"
+			position = { 0 0 }
+			using = sidebar_button_size_small
+			using = selected_sidepanel_animation_small
+			blockoverride "selected_visibility" {
+				visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
+			}
+			sidepanel_button_small = {
+				name = "ghcm_shortcut_button"
+				blockoverride "icon" {
+					texture = "gfx/interface/icons/military_icons/skull.dds"
+				}
+				blockoverride "icon_size" {
+					size = { 25 25 }
+				}
+				blockoverride "button_selected" {
+					visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
+				}
+				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
+			}
+		}
+		sidebar_tooltip_area_small = {
+			position = { 0 0 }
+			tooltip = "GHCM_BUTTON_TOOLTIP"
+			input_action = ghcm_menu
+		}
+	}
+}
+
+ghcm_window = {}

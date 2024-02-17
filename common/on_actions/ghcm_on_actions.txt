@@ -1,0 +1,19 @@
+﻿on_monthly_pulse_country = {
+	effect = {
+		if = {
+			limit = {
+				is_player = yes
+				has_global_variable = ghcm_minting_boost_mult
+			}
+			set_global_variable = {
+				name = ghcm_minting_boost_mult
+				value = root.gdp
+			}
+			remove_modifier = ghcm_minting_boost
+			add_modifier = {
+				name = ghcm_minting_boost
+				multiplier = global_var:ghcm_minting_boost_mult
+			}
+		}
+	}
+}
