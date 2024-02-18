@@ -1,2 +1,4 @@
+.envrc
 .vscode/
-
+gui/information_panel_bar.gui
+gui/modular_ui_framework_types.gui

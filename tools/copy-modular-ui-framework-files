@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo MODULAR_UI_FRAMEWORK_DIR: "$MODULAR_UI_FRAMEWORK_DIR"
+echo GHCM_DIR: "$GHCM_DIR"
+cp -vf "$MODULAR_UI_FRAMEWORK_DIR/gui/information_panel_bar.gui" "$GHCM_DIR/gui/"
+cp -vf "$MODULAR_UI_FRAMEWORK_DIR/gui/modular_ui_framework_types.gui" "$GHCM_DIR/gui/"
