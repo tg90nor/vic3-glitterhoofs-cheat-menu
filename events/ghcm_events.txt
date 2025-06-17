@@ -2,6 +2,7 @@
 @ghcm_ig_approval_increment = 5
 @ghcm_offense_increment = 1 # 100%
 @ghcm_defense_increment = 1 # 100%
+@ghcm_innovation_increment = 50
 
 namespace = ghcm
 
@@ -463,7 +464,7 @@ ghcm.33 = { # rm attack
 	}
 }
 
-ghcm.34 = { # add defence
+ghcm.34 = { # defense +
 	type = country_event
 	hidden = yes
 	immediate = {
@@ -592,6 +593,191 @@ ghcm.41 = { # rm throughput
 	hidden = yes
 	immediate = {
 		remove_modifier = ghcm_add_throughput
+	}
+}
+
+ghcm.42 = { # set innovation modifier
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_modifier = ghcm_innovation
+		if = {
+			limit = {
+				global_var:ghcm_innovation_mult > 0
+			}
+			add_modifier = {
+				name = ghcm_innovation
+				multiplier = global_var:ghcm_innovation_mult
+			}
+		}
+		else_if = {
+			limit = {
+				global_var:ghcm_innovation_mult < 0
+			}
+			add_modifier = {
+				name = ghcm_innovation
+				multiplier = global_var:ghcm_innovation_mult
+			}
+		}
+	}
+}
+
+ghcm.43 = { # innovation +1
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_innovation_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_innovation_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_innovation_mult
+			add = @ghcm_innovation_increment
+		}
+		trigger_event = {
+			id = ghcm.42
+		}
+	}
+}
+
+ghcm.44 = { # innovation +5
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_innovation_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_innovation_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_innovation_mult
+			add = @[ghcm_innovation_increment*5]
+		}
+		trigger_event = {
+			id = ghcm.42
+		}
+	}
+}
+
+ghcm.45 = { # innovation +10
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_innovation_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_innovation_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_innovation_mult
+			add = @[ghcm_innovation_increment*10]
+		}
+		trigger_event = {
+			id = ghcm.42
+		}
+	}
+}
+
+ghcm.46 = { # innovation -1
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_innovation_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_innovation_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_innovation_mult
+			subtract = @ghcm_innovation_increment
+		}
+		trigger_event = {
+			id = ghcm.42
+		}
+	}
+}
+
+ghcm.47 = { # innovation -5
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_innovation_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_innovation_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_innovation_mult
+			subtract = @[ghcm_innovation_increment*5]
+		}
+		trigger_event = {
+			id = ghcm.42
+		}
+	}
+}
+
+ghcm.48 = { # innovation -10
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_variable = ghcm_innovation_mult
+				}
+			}
+			set_global_variable = {
+				name = ghcm_innovation_mult
+				value = 0
+			}
+		}
+		change_global_variable = {
+			name = ghcm_innovation_mult
+			subtract = @[ghcm_innovation_increment*10]
+		}
+		trigger_event = {
+			id = ghcm.42
+		}
+	}
+}
+
+ghcm.49 = { # clear innovation modifier and variable
+	type = country_event
+	hidden = yes
+	immediate = {
+		remove_global_variable = ghcm_innovation_mult
+		remove_modifier = ghcm_innovation
 	}
 }
 
@@ -2236,28 +2422,7 @@ ghcm.951 = { # 基础设施清空
 		remove_modifier = ghcm_add_PPK_JCS_X
 	}
 }
-ghcm.952 = { # 创新力+
-	type = country_event
-	hidden = yes
-	immediate = {
-		add_modifier = ghcm_add_PPK_CXL
-	}
-}
-ghcm.953 = { # 创新力-
-	type = country_event
-	hidden = yes
-	immediate = {
-		add_modifier = ghcm_add_PPK_CXL_X
-	}
-}
-ghcm.954 = { # 创新力清空
-	type = country_event
-	hidden = yes
-	immediate = {
-		remove_modifier = ghcm_add_PPK_CXL
-		remove_modifier = ghcm_add_PPK_CXL_X
-	}
-}
+
 ghcm.955 = { # 移民吸引+
 	type = country_event
 	hidden = yes

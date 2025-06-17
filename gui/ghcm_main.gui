@@ -3,7 +3,7 @@
 		name = "ghcm_main_window"
 		parentanchor = center
 		position = { 0 0 }
-		size = { 640 %100 }
+		size = { 715 %100 }
 		layer = windows_layer
 		filter_mouse = all
 		allow_outside = yes
@@ -29,7 +29,7 @@
 
 		vbox = {
 			restrictparent_min = yes
-			using = Window_Margins
+			margin = { 35 20 }
 
 			header_pattern = {
 				layoutpolicy_horizontal = expanding
@@ -69,8 +69,8 @@
 				size = { 645 420 }
 	
 				widget = {
-									position = { -2 0 }
-									size = { 640 100 }
+					position = { -2 0 }
+					size = { 640 100 }
 					vbox = {
 						hbox = {
 							button_standard = {
@@ -915,32 +915,49 @@
 									tooltip = "PPK_TEXT_BUTTON_57X_TOOLTIP"
 								}
 							}
-	
+
 							button_standard = {
 								blockoverride "primary_visible" {}
 								blockoverride "primary_texture" {
 									texture = "gfx/interface/buttons/default_button_frame_map_interaction.dds"
 								}
-								name = "ghcm_PK_X_5"
-								onclick = "[ExecuteConsoleCommand('event ghcm.952')]"
-								onrightclick = "[ExecuteConsoleCommand('event ghcm.953')]"
-								tooltip = "PPK_TEXT_BUTTON_58_TOOLTIP"
+								name = "ghcm_button_innovation_reset"
+								tooltip = "concept_innovation_desc"
+								click_modifiers = {
+									ondefault = "[ExecuteConsoleCommand('event ghcm.49')]"
+								}
 								using = tooltip_ne
 								size = { 128 35 }
-								text = "PPK_TEXT_BUTTON_58"
+								text = "ghcm_button_innovation"
 								sidepanel_button_small = {
 									position = { -45 0 }
-									name = "ghcm_PK_X_5_sidepanel"
+									name = "ghcm_button_innovation_decrease"
 									size = { 35 35 }
 									alpha = 1
-									onclick = "[ExecuteConsoleCommand('event ghcm.954')]"
-									blockoverride "sound" {
-										using = back_button_sound
+									click_modifiers = {
+										ondefault = "[ExecuteConsoleCommand('event ghcm.46')]"
+										onshift = "[ExecuteConsoleCommand('event ghcm.47')]"
+										onalt = "[ExecuteConsoleCommand('event ghcm.48')]"
 									}
 									blockoverride "icon" {
-										texture = "gfx/interface/buttons/button_icons/back.dds"
+										texture = "gfx/interface/buttons/button_icons/minus.dds"
 									}
-									tooltip = "PPK_TEXT_BUTTON_58X_TOOLTIP"
+									tooltip = "ghcm_button_innovation_decrease_tooltip"
+								}
+								sidepanel_button_small = {
+									position = { 45 0 }
+									name = "ghcm_button_innovation_increase"
+									size = { 35 35 }
+									alpha = 1
+									click_modifiers = {
+										ondefault = "[ExecuteConsoleCommand('event ghcm.43')]"
+										onshift = "[ExecuteConsoleCommand('event ghcm.44')]"
+										onalt = "[ExecuteConsoleCommand('event ghcm.45')]"
+									}
+									blockoverride "icon" {
+										texture = "gfx/interface/buttons/button_icons/plus.dds"
+									}
+									tooltip = "ghcm_button_innovation_increase_tooltip"
 								}
 							}
 	
