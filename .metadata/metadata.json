@@ -1,11 +1,19 @@
 {
   "name" : "Glitterhoofs Cheat Menu",
-  "id" : "",
+  "id" : "com.github.tg90nor.vic3-glitterhoofs-cheat-menu",
   "version" : "",
-  "supported_game_version" : "",
+  "supported_game_version" : "1.9.*",
   "short_description" : "",
-  "tags" : [],
-  "relationships" : [],
+  "tags" : ["1.9"],
+  "relationships" : [
+    {
+      "rel_type" : "dependency",
+      "id" : "com.github.Victoria-3-Modding-Co-op.Community-Mod-Framework",
+      "display_name" : "Community Mod Framework",
+      "resource_type" : "mod",
+      "version" : "1.*"
+    }
+  ],
   "game_custom_data" : {
     "multiplayer_synchronized" : true
   }

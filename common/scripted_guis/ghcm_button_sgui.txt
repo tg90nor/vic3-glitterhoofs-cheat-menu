@@ -1,0 +1,24 @@
+ghcm_button = {
+	scope = country
+
+	is_shown = {
+		always = yes
+	}
+	is_valid = {
+		always = yes
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = ghcm_window_isshown
+			}
+			remove_global_variable = ghcm_window_isshown
+		}
+		else = {
+			set_global_variable = {
+				name = ghcm_window_isshown
+				value = 1
+			}
+		}
+	}
+}

@@ -1,6 +1,4 @@
 ﻿l_english:
-  GHCM_BUTTON:0 "Cheat Menu"
-  GHCM_BUTTON_TOOLTIP:0 "Open the cheat menu"
   GHCM_HEADER:0 "Glitterhoofs Cheat Menu"
   GHCM_DESCRIPTION:0 "This mod tweaks and updates Advanced Cheat Menu + (PK version)"
   PPK_TEXT_BUTTON_1:0 "Debug Mode"
@@ -206,3 +204,7 @@
   ghcm_add_attack:0 "Offense Boost (cheat)"
   ghcm_add_defense:0 "Defense Boost (cheat)"
   ghcm_innovation:0 "Innovation Boost (cheat)"
+
+  ghcm_button: "ghcm_button"
+  ghcm_button_desc: "Cheat Menu"
+  ghcm_button_tooltip: "Open the Cheat Menu"

@@ -8,7 +8,7 @@
 		filter_mouse = all
 		allow_outside = yes
 		alwaystransparent = no
-		visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
+		visible = "[GetVariableSystem.HasValue('com_open_window', 'ghcm_button')]"
 
 		using = Window_Background
 		using = Window_Decoration
@@ -43,7 +43,7 @@
 	
 				blockoverride "button_close"
 				{
-					onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
+					onclick = "[GetVariableSystem.Clear('com_open_window')]"
 				}
 	
 				widget = {
@@ -1159,84 +1159,4 @@
 			}
 		}
 	}
-	type cheat_menu_sidebar_button = widget {
-		using = clickthrough_blocker
-		size = { 100% 40 }
-
-		sidebar_label_button_small = {
-			visible = "[Not(GetVariableSystem.Exists('enable_ghcm_main_window'))]"
-			position = { -100 0 }
-			blockoverride "onclick" {
-				onclick = "[GetVariableSystem.Toggle('enable_ghcm_main_window')]"
-				onclick = "[ExecuteConsoleCommand('GUI.CreateWidget gui/ghcm_main.gui ghcm_main_window')]"
-				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
-				input_action = ghcm_menu
-			}
-		}
-		sidebar_label_button_small = {
-			visible = "[GetVariableSystem.Exists('enable_ghcm_main_window')]"
-			position = { -100 0 }
-			blockoverride "onclick" {
-				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
-				input_action = ghcm_menu
-			}
-		}
-		sidebar_label_text_small = {
-			position = { -100 0 }
-			text = "GHCM_BUTTON"
-		}
-		widget = {
-			visible = "[Not(GetVariableSystem.Exists('enable_ghcm_main_window'))]"
-			position = { 0 0 }
-			using = sidebar_button_size_small
-			using = selected_sidepanel_animation_small
-			blockoverride "selected_visibility" {
-				visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
-			}
-			sidepanel_button_small = {
-				name = "ghcm_shortcut_button"
-				blockoverride "icon" {
-					texture = "gfx/interface/icons/military_icons/skull.dds"
-				}
-				blockoverride "icon_size" {
-					size = { 25 25 }
-				}
-				blockoverride "button_selected" {
-					visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
-				}
-				onclick = "[GetVariableSystem.Toggle('enable_ghcm_main_window')]"
-				onclick = "[ExecuteConsoleCommand('GUI.CreateWidget gui/ghcm_main.gui ghcm_main_window')]"
-				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
-			}
-		}
-		widget = {
-			visible = "[GetVariableSystem.Exists('enable_ghcm_main_window')]"
-			position = { 0 0 }
-			using = sidebar_button_size_small
-			using = selected_sidepanel_animation_small
-			blockoverride "selected_visibility" {
-				visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
-			}
-			sidepanel_button_small = {
-				name = "ghcm_shortcut_button"
-				blockoverride "icon" {
-					texture = "gfx/interface/icons/military_icons/skull.dds"
-				}
-				blockoverride "icon_size" {
-					size = { 25 25 }
-				}
-				blockoverride "button_selected" {
-					visible = "[GetVariableSystem.Exists('show_ghcm_main_window')]"
-				}
-				onclick = "[GetVariableSystem.Toggle('show_ghcm_main_window')]"
-			}
-		}
-		sidebar_tooltip_area_small = {
-			position = { 0 0 }
-			tooltip = "GHCM_BUTTON_TOOLTIP"
-			input_action = ghcm_menu
-		}
-	}
 }
-
-ghcm_window = {}

@@ -1,0 +1,1 @@
+gui/ghcm_panels.gui = ghcm_panels
