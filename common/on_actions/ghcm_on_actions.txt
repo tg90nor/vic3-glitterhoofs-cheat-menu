@@ -15,5 +15,20 @@
 				multiplier = global_var:ghcm_minting_boost_mult
 			}
 		}
+		if = {
+			limit = {
+				NOT = {
+					is_target_in_global_variable_list = {
+						name = custom_button_list_flag
+						target = flag:ghcm_button
+					}
+				}
+
+			}
+			add_to_global_variable_list = {
+				name = custom_button_list_flag
+				target = flag:ghcm_button
+			}
+		}
 	}
 }
